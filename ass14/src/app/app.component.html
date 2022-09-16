@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <style>
+    .image{
+      float:right;
+      padding: auto;
+      margin-right: 900px;
+      width:250px;
+      height:150px;
+      left:60%;
+    }
+
+    .box{
+      height: 90px;
+    }
+    </style>
+    
+    
+
+
+
+
+<h1 [style.margin-left]="'160px'"  [style.color]="'pink'">Contact Our    <img class="image" src="/assets/machine.png" /></h1>
+<h1 [style.margin-left]="'60px'">Customer Support Center</h1>
+<br><br><br>
+<h2>Contact Information</h2>
+<h3>please fill your contact information below</h3>
+<form [formGroup]="Contactform" (ngSubmit)="submit()">
+
+<div class="form-group">
+  <td><label>First Name</label>
+  <input [class.is-invalid] = "Contactform.get('fname')?.invalid" type="text" class="form-control" formControlName="fname">
+  <small [class.d-none]="Contactform.get('fname')?.valid || Contactform.get('fname')?.untouched" class="text-danger">First name is required</small></td>
+  
+  
+  <td><label>Last name</label>
+  <input [class.is-invalid] = "Contactform.get('lname')?.invalid" type="text" class="form-control" formControlName="lname">
+  <small [class.d-none]="Contactform.get('lname')?.valid || Contactform.get('lname')?.untouched" class="text-danger">Last name is required</small></td>
+  
+</div>
+
+<div class="form-group">
+  <label>Email</label>
+  <input [class.is-invalid] = "Contactform.get('email')?.invalid" type="text" class="form-control" formControlName="email">
+  <small [class.d-none]=" Contactform.get('email')?.valid || Contactform.get('email')?.untouched" class="text-danger">Email is invalid</small>
+</div>
+
+<div class="form-group">
+  <label>Phone No</label>
+  <input [class.is-invalid] = "Contactform.get('phone')?.invalid" type="text" class="form-control" formControlName="phone">
+  <small [class.d-none]="Contactform.get('phone')?.valid || Contactform.get('phone')?.untouched" class="text-danger">Phone No is invalid</small>
+</div>
+
+<div formGroupName="address">
+<div class="form-group">
+  <label>City</label>
+  <input [class.is-invalid] = "Contactform.get('address.city')?.invalid" type="text" class="form-control" formControlName="city">
+  <small [class.d-none]="Contactform.get('address.city')?.valid || Contactform.get('address.city')?.untouched" class="text-danger">minimum 4 letters required</small>
+</div>
+
+<div class="form-group">
+  <label>State</label>
+  <input [class.is-invalid] = "Contactform.get('address.state')?.invalid" type="text" class="form-control" formControlName="state">
+  <small [class.d-none]="Contactform.get('address.state')?.valid || Contactform.get('address.state')?.untouched" class="text-danger">enter the state </small>
+
+</div>
+
+<div class="form-group">
+  <label>ZIP Code</label>
+  <input [class.is-invalid] = "Contactform.get('address.ZIP_code')?.invalid" type="text" class="form-control" formControlName="ZIP_code">
+  <small [class.d-none]="Contactform.get('address.ZIP_code')?.valid || Contactform.get('address.ZIP_code')?.untouched" class="text-danger">enter 5 digit ZIP code</small>
+</div>
+
+<div class="form-group">
+  <label>Comments</label>
+  <textarea  [class.is-invalid] = "Contactform.get('address.comments')?.invalid" style="width:100%;height:150px;padding:0%;font-size:1.2em;border:1px solid #b1b4ae" class="form-control" formControlName="comments"></textarea>
+  <small [class.d-none]="Contactform.get('address.comments')?.valid || Contactform.get('address.comments')?.untouched" class="text-danger">comments your complaint</small>
+</div>
+</div>
+<br><br>
+<button class="btn btn-primary" type="submit" [disabled]="!Contactform.valid">Submit</button>
+{{Contactform.value | json}}
+</form>
+
+</div>

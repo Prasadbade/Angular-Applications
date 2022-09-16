@@ -1,0 +1,23 @@
+
+<router-outlet></router-outlet>
+
+<h1> Batches</h1>
+<button (click)="GetbatchesAPI()">All batches</button>
+<li *ngFor = "let values of batch">
+    <h2>Id: {{values.id|json}}</h2>
+    <h2>name: {{values.name|json}}</h2>
+    <h2>Duration: {{values.Duration|json}}</h2>
+
+</li>
+<br><br><br><br>
+
+<!--
+<input [(ngModel)]='data' >
+<button (click)="deletebatchesAPI()"> Delete</button>
+    <h2>data deleted: {{batch|json}}</h2>
+-->
+    
+
+<input [(ngModel)]='name' >
+<button (click)="InsertbatchesAPI()"> Insert</button>
+    <h2>data inserted: {{batch|json}}</h2>

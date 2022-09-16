@@ -1,0 +1,27 @@
+<h1>
+    batches of marvellous
+</h1>
+<h2>{{batches[0]}}</h2>
+<h2>{{batches[1]}}</h2>
+<h2>{{batches[2]}}</h2>
+<h2>{{batches[3]}}</h2>
+<h2>{{batches[4]}}</h2>
+
+<h1>
+    batches of marvellous
+</h1>
+<div *ngFor="let values of batches">
+<h2>
+    {{values}}
+</h2>
+</div>
+
+
+<h1>
+    batches of marvellous
+</h1>
+<div *ngFor="let values of batches;index as i">
+<h2>
+    {{i}}:{{values}}
+</h2>
+</div>
